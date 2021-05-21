@@ -24,6 +24,7 @@
   "homepage": "https://github.com/chrisdra/FestivalMusica#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^7.1.0",
     "gulp-notify": "^4.0.0",
     "gulp-sass": "^4.1.0",

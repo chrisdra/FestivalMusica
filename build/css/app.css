@@ -314,6 +314,8 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 1.6rem; }
+  body.fijar-body {
+    overflow: hidden; }
 
 p {
   font-size: 2rem;
@@ -487,3 +489,46 @@ h3 {
 
 .bg-amarillo .calendario li:nth-child(odd) {
   background-color: #fef03a; }
+
+.galeria {
+  padding: 5rem 0; }
+  .galeria h3 {
+    text-align: center; }
+
+.galeria-imagenes {
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem; }
+  @media (min-width: 768px) {
+    .galeria-imagenes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem; } }
+  @media (min-width: 1200px) {
+    .galeria-imagenes {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2.5rem; } }
+
+.overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: grid;
+  place-items: center; }
+
+.btn-cerrar {
+  width: 5rem;
+  height: 5rem;
+  background-color: #FFFFFF;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 3rem;
+  border-radius: 50%; }
+  .btn-cerrar:hover {
+    cursor: pointer; }
