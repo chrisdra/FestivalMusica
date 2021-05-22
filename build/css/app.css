@@ -367,6 +367,10 @@ h3 {
     @media (min-width: 768px) {
       .header h1 {
         margin-bottom: 0; } }
+  .header.fijo {
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 .3rem .4rem #444444; }
 
 .navegacion-principal {
   display: flex;
@@ -532,3 +536,52 @@ h3 {
   border-radius: 50%; }
   .btn-cerrar:hover {
     cursor: pointer; }
+
+.boletos {
+  padding: 5rem 0; }
+  .boletos h3 {
+    text-align: center;
+    color: #FFFFFF; }
+  .boletos .contenedor-boletos {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem; }
+  .boletos .plan p {
+    color: #FFFFFF;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem; }
+
+.pase {
+  width: 100%; }
+  .pase thead {
+    background-color: #F53756; }
+    .pase thead th {
+      padding: 1.25rem;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 2rem; }
+  .pase tbody {
+    background-color: #FFFFFF; }
+    .pase tbody td {
+      padding: 1.25rem;
+      border-bottom: 1px solid #e1e1e1; }
+    .pase tbody tr:last-of-type td {
+      border: none; }
+  .pase tfoot {
+    background-color: #752F97; }
+    .pase tfoot td {
+      padding: 1.25rem;
+      text-align: center;
+      color: #FFFFFF;
+      font-size: 3rem; }
+
+.footer {
+  background-color: #F53756;
+  padding: 0.83333rem;
+  text-align: center; }
+  .footer p {
+    color: #FFFFFF;
+    margin: 0; }
