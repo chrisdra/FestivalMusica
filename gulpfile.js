@@ -4,8 +4,14 @@ const imagemin = require('gulp-imagemin');
 const notify = require('gulp-notify');
 const webp = require('gulp-webp');
 const concat = require('gulp-concat');
-// Funcion que compila SASS
 
+//Utilidades CSS
+const autoprefixer = require('autoprefixer');
+const postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
+const sourcemaps = require('gulp-sourcemaps');
+
+// Funcion que compila SASS
 const paths = {
     imagenes: 'src/img/**/*',
     scss: 'src/scss/**/*.scss',
@@ -14,8 +20,11 @@ const paths = {
 
 function css () {
     return src(paths.scss)
-    .pipe( sass())
-    .pipe( dest('./build/css'))
+        .pipe( sourcemaps.init() )    
+        .pipe( sass())
+        .pipe( postcss([ autoprefixer(), cssnano()]))
+        .pipe( sourcemaps.write('.') )
+        .pipe( dest('./build/css'))
 }
 
 function minificarcss () {
