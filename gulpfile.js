@@ -11,6 +11,10 @@ const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 
+//Utilidades JS
+const terser = require('gulp-terser-js');
+const rename = require('gulp-rename');
+
 // Funcion que compila SASS
 const paths = {
     imagenes: 'src/img/**/*',
@@ -22,23 +26,20 @@ function css () {
     return src(paths.scss)
         .pipe( sourcemaps.init() )    
         .pipe( sass())
-        .pipe( postcss([ autoprefixer(), cssnano()]))
+        .pipe( postcss([ autoprefixer(), cssnano() ]))
         .pipe( sourcemaps.write('.') )
-        .pipe( dest('./build/css'))
-}
-
-function minificarcss () {
-    return src(paths.scss)
-    .pipe( sass({
-        outputStyle: 'compressed'
-    }))
-    .pipe( dest('./build/css'))
+        .pipe( dest('./build/css') )
 }
 
 function javascript() {
     return src(paths.js)
+        .pipe( sourcemaps.init())
         .pipe( concat('bundle.js'))
+        .pipe( terser() )
+        .pipe(sourcemaps.write('.') )
+        .pipe( rename({ suffix: '.min'}))
         .pipe( dest('./build/js'))
+
 }
 
 function imagenes() {
@@ -61,7 +62,6 @@ function watchArchivos() {
 }
 
 exports.css = css;
-exports.minificarcss = minificarcss;
 exports.imagenes = imagenes;
 exports.watchArchivos = watchArchivos;
 
